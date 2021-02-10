@@ -350,7 +350,6 @@ MigrationBackup/
 .ionide/
 
 # Meson shit
-*.build
 .*.swp
 
 # Suggested names for build dirs
