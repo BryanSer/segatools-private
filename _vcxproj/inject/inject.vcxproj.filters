@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="inject">
+      <UniqueIdentifier>{6b3097c4-1dc5-4c05-be8e-ad6e33a270ac}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\assert.h" />
+    <ClInclude Include="..\..\subprojects\capnhook\inject\debug.h">
+      <Filter>inject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\subprojects\capnhook\inject\options.h">
+      <Filter>inject</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\subprojects\capnhook\inject\debug.c">
+      <Filter>inject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\subprojects\capnhook\inject\main.c">
+      <Filter>inject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\subprojects\capnhook\inject\options.c">
+      <Filter>inject</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

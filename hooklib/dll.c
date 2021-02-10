@@ -154,7 +154,7 @@ static HMODULE dll_hook_search_dll(const wchar_t *name)
     EnterCriticalSection(&dll_hook_lock);
 
     for (i = 0 ; i < dll_hook_count ; i++) {
-        if (wcsicmp(name, dll_hook_list[i].name) == 0) {
+        if (_wcsicmp(name, dll_hook_list[i].name) == 0) {
             result = dll_hook_list[i].redir_mod;
 
             break;

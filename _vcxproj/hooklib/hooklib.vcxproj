@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{fcb8b5c1-f806-4911-b15a-febfdcb63bc4}</ProjectGuid>
+    <RootNamespace>hooklib</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <CompileAsManaged>false</CompileAsManaged>
+      <ExceptionHandling>false</ExceptionHandling>
+      <EnableModules>false</EnableModules>
+      <CompileAs>CompileAsC</CompileAs>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>..\..\;..\..\subprojects\capnhook\;$(ProjectDir)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>precompiled.h</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;COBJMACROS;WIN32_LEAN_AND_MEAN;DIRECTINPUT_VERSION=0x0800;_WIN32_WINNT=_WIN32_WINNT_WIN7;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ForcedIncludeFiles>%(PrecompiledHeaderFile)</ForcedIncludeFiles>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <SupportJustMyCode>false</SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+    </ClCompile>
+    <Lib>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
+      <AdditionalDependencies>shlwapi.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <CompileAsManaged>false</CompileAsManaged>
+      <ExceptionHandling>false</ExceptionHandling>
+      <EnableModules>false</EnableModules>
+      <CompileAs>CompileAsC</CompileAs>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>..\..\;..\..\subprojects\capnhook\;$(ProjectDir)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>precompiled.h</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;COBJMACROS;WIN32_LEAN_AND_MEAN;DIRECTINPUT_VERSION=0x0800;_WIN32_WINNT=_WIN32_WINNT_WIN7;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ForcedIncludeFiles>%(PrecompiledHeaderFile)</ForcedIncludeFiles>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <UseFullPaths>false</UseFullPaths>
+    </ClCompile>
+    <Lib>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <AdditionalDependencies>shlwapi.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <CompileAsManaged>false</CompileAsManaged>
+      <ExceptionHandling>false</ExceptionHandling>
+      <EnableModules>false</EnableModules>
+      <CompileAs>CompileAsC</CompileAs>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>..\..\;..\..\subprojects\capnhook\;$(ProjectDir)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>precompiled.h</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>_DEBUG;_LIB;COBJMACROS;WIN32_LEAN_AND_MEAN;DIRECTINPUT_VERSION=0x0800;_WIN32_WINNT=_WIN32_WINNT_WIN7;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ForcedIncludeFiles>%(PrecompiledHeaderFile)</ForcedIncludeFiles>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <SupportJustMyCode>false</SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+    </ClCompile>
+    <Lib>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
+      <AdditionalDependencies>shlwapi.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <CompileAsManaged>false</CompileAsManaged>
+      <ExceptionHandling>false</ExceptionHandling>
+      <EnableModules>false</EnableModules>
+      <CompileAs>CompileAsC</CompileAs>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>..\..\;..\..\subprojects\capnhook\;$(ProjectDir)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>precompiled.h</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>NDEBUG;_LIB;COBJMACROS;WIN32_LEAN_AND_MEAN;DIRECTINPUT_VERSION=0x0800;_WIN32_WINNT=_WIN32_WINNT_WIN7;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ForcedIncludeFiles>%(PrecompiledHeaderFile)</ForcedIncludeFiles>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <UseFullPaths>false</UseFullPaths>
+    </ClCompile>
+    <Lib>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <AdditionalDependencies>shlwapi.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\assert.h" />
+    <ClInclude Include="..\..\precompiled.h" />
+    <ClInclude Include="..\..\amex\amex.h" />
+    <ClInclude Include="..\..\amex\config.h" />
+    <ClInclude Include="..\..\amex\ds.h" />
+    <ClInclude Include="..\..\amex\eeprom.h" />
+    <ClInclude Include="..\..\amex\gpio.h" />
+    <ClInclude Include="..\..\amex\jvs.h" />
+    <ClInclude Include="..\..\amex\nvram.h" />
+    <ClInclude Include="..\..\amex\sram.h" />
+    <ClInclude Include="..\..\board\config.h" />
+    <ClInclude Include="..\..\board\guid.h" />
+    <ClInclude Include="..\..\board\io3.h" />
+    <ClInclude Include="..\..\board\io4.h" />
+    <ClInclude Include="..\..\board\sg-cmd.h" />
+    <ClInclude Include="..\..\board\sg-frame.h" />
+    <ClInclude Include="..\..\board\sg-led-cmd.h" />
+    <ClInclude Include="..\..\board\sg-led.h" />
+    <ClInclude Include="..\..\board\sg-nfc-cmd.h" />
+    <ClInclude Include="..\..\board\sg-nfc.h" />
+    <ClInclude Include="..\..\board\sg-reader.h" />
+    <ClInclude Include="..\..\board\slider-cmd.h" />
+    <ClInclude Include="..\..\board\slider-frame.h" />
+    <ClInclude Include="..\..\board\vfd.h" />
+    <ClInclude Include="..\..\hooklib\config.h" />
+    <ClInclude Include="..\..\hooklib\dll.h" />
+    <ClInclude Include="..\..\hooklib\dns.h" />
+    <ClInclude Include="..\..\hooklib\fdshark.h" />
+    <ClInclude Include="..\..\hooklib\gfx.h" />
+    <ClInclude Include="..\..\hooklib\path.h" />
+    <ClInclude Include="..\..\hooklib\reg.h" />
+    <ClInclude Include="..\..\hooklib\setupapi.h" />
+    <ClInclude Include="..\..\hooklib\spike.h" />
+    <ClInclude Include="..\..\iccard\aime.h" />
+    <ClInclude Include="..\..\iccard\felica.h" />
+    <ClInclude Include="..\..\iccard\mifare.h" />
+    <ClInclude Include="..\..\jvs\jvs-bus.h" />
+    <ClInclude Include="..\..\jvs\jvs-cmd.h" />
+    <ClInclude Include="..\..\jvs\jvs-frame.h" />
+    <ClInclude Include="..\..\jvs\jvs-util.h" />
+    <ClInclude Include="..\..\platform\amvideo.h" />
+    <ClInclude Include="..\..\platform\clock.h" />
+    <ClInclude Include="..\..\platform\config.h" />
+    <ClInclude Include="..\..\platform\dns.h" />
+    <ClInclude Include="..\..\platform\hwmon.h" />
+    <ClInclude Include="..\..\platform\hwreset.h" />
+    <ClInclude Include="..\..\platform\misc.h" />
+    <ClInclude Include="..\..\platform\netenv.h" />
+    <ClInclude Include="..\..\platform\nusec.h" />
+    <ClInclude Include="..\..\platform\pcbid.h" />
+    <ClInclude Include="..\..\platform\platform.h" />
+    <ClInclude Include="..\..\platform\vfs.h" />
+    <ClInclude Include="..\..\util\async.h" />
+    <ClInclude Include="..\..\util\crc.h" />
+    <ClInclude Include="..\..\util\dprintf.h" />
+    <ClInclude Include="..\..\util\dump.h" />
+    <ClInclude Include="..\..\util\str.h" />
+    <ClInclude Include="..\..\subprojects\capnhook\hook\args.h" />
+    <ClInclude Include="..\..\subprojects\capnhook\hook\com-proxy.h" />
+    <ClInclude Include="..\..\subprojects\capnhook\hook\hr.h" />
+    <ClInclude Include="..\..\subprojects\capnhook\hook\iobuf.h" />
+    <ClInclude Include="..\..\subprojects\capnhook\hook\iohook.h" />
+    <ClInclude Include="..\..\subprojects\capnhook\hook\pe.h" />
+    <ClInclude Include="..\..\subprojects\capnhook\hook\peb.h" />
+    <ClInclude Include="..\..\subprojects\capnhook\hook\process.h" />
+    <ClInclude Include="..\..\subprojects\capnhook\hook\table.h" />
+    <ClInclude Include="..\..\subprojects\capnhook\hooklib\serial.h" />
+    <ClInclude Include="..\..\subprojects\capnhook\hooklib\uart.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\amex\amex.c" />
+    <ClCompile Include="..\..\amex\config.c" />
+    <ClCompile Include="..\..\amex\ds.c" />
+    <ClCompile Include="..\..\amex\eeprom.c" />
+    <ClCompile Include="..\..\amex\gpio.c" />
+    <ClCompile Include="..\..\amex\guid.c" />
+    <ClCompile Include="..\..\amex\jvs.c" />
+    <ClCompile Include="..\..\amex\nvram.c" />
+    <ClCompile Include="..\..\amex\sram.c" />
+    <ClCompile Include="..\..\board\config.c" />
+    <ClCompile Include="..\..\board\guid.c" />
+    <ClCompile Include="..\..\board\io3.c" />
+    <ClCompile Include="..\..\board\io4.c" />
+    <ClCompile Include="..\..\board\sg-cmd.c" />
+    <ClCompile Include="..\..\board\sg-frame.c" />
+    <ClCompile Include="..\..\board\sg-led.c" />
+    <ClCompile Include="..\..\board\sg-nfc.c" />
+    <ClCompile Include="..\..\board\sg-reader.c" />
+    <ClCompile Include="..\..\board\slider-frame.c" />
+    <ClCompile Include="..\..\board\vfd.c" />
+    <ClCompile Include="..\..\hooklib\config.c" />
+    <ClCompile Include="..\..\hooklib\dll.c" />
+    <ClCompile Include="..\..\hooklib\dns.c" />
+    <ClCompile Include="..\..\hooklib\fdshark.c" />
+    <ClCompile Include="..\..\hooklib\gfx.c" />
+    <ClCompile Include="..\..\hooklib\path.c" />
+    <ClCompile Include="..\..\hooklib\reg.c" />
+    <ClCompile Include="..\..\hooklib\setupapi.c" />
+    <ClCompile Include="..\..\hooklib\spike.c" />
+    <ClCompile Include="..\..\iccard\aime.c" />
+    <ClCompile Include="..\..\iccard\felica.c" />
+    <ClCompile Include="..\..\jvs\jvs-bus.c" />
+    <ClCompile Include="..\..\jvs\jvs-frame.c" />
+    <ClCompile Include="..\..\jvs\jvs-util.c" />
+    <ClCompile Include="..\..\platform\amvideo.c" />
+    <ClCompile Include="..\..\platform\clock.c" />
+    <ClCompile Include="..\..\platform\config.c" />
+    <ClCompile Include="..\..\platform\dns.c" />
+    <ClCompile Include="..\..\platform\hwmon.c" />
+    <ClCompile Include="..\..\platform\hwreset.c" />
+    <ClCompile Include="..\..\platform\misc.c" />
+    <ClCompile Include="..\..\platform\netenv.c" />
+    <ClCompile Include="..\..\platform\nusec.c" />
+    <ClCompile Include="..\..\platform\pcbid.c" />
+    <ClCompile Include="..\..\platform\platform.c" />
+    <ClCompile Include="..\..\platform\vfs.c" />
+    <ClCompile Include="..\..\util\async.c" />
+    <ClCompile Include="..\..\util\crc.c" />
+    <ClCompile Include="..\..\util\dprintf.c" />
+    <ClCompile Include="..\..\util\dump.c" />
+    <ClCompile Include="..\..\util\str.c" />
+    <ClCompile Include="..\..\subprojects\capnhook\hook\args.c" />
+    <ClCompile Include="..\..\subprojects\capnhook\hook\com-proxy.c" />
+    <ClCompile Include="..\..\subprojects\capnhook\hook\hr.c" />
+    <ClCompile Include="..\..\subprojects\capnhook\hook\iobuf.c" />
+    <ClCompile Include="..\..\subprojects\capnhook\hook\iohook.c" />
+    <ClCompile Include="..\..\subprojects\capnhook\hook\pe.c" />
+    <ClCompile Include="..\..\subprojects\capnhook\hook\peb.c" />
+    <ClCompile Include="..\..\subprojects\capnhook\hook\process.c" />
+    <ClCompile Include="..\..\subprojects\capnhook\hook\table.c" />
+    <ClCompile Include="..\..\subprojects\capnhook\hooklib\serial.c" />
+    <ClCompile Include="..\..\subprojects\capnhook\hooklib\uart.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

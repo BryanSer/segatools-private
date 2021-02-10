@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="amex">
+      <UniqueIdentifier>{0cfe9ec9-37d9-494c-8ba2-40f5cd2bbd82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="board">
+      <UniqueIdentifier>{35b8b57f-50ba-4576-9535-abb97687bc71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hooklib">
+      <UniqueIdentifier>{c6da995c-c2cb-4adf-965e-d2855f12c710}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="iccard">
+      <UniqueIdentifier>{677566a5-eb1d-46c0-a11c-20d7d273d5c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="jvs">
+      <UniqueIdentifier>{6ae42259-3c11-4a15-bb84-f1496bfd91ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform">
+      <UniqueIdentifier>{5e82d515-96fa-46e4-b13e-ab5388a1adf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{781771b7-afbb-437f-8309-7662c0859a87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="capnhook">
+      <UniqueIdentifier>{465b110a-b2c4-4bdd-ba7d-20f1f8a29b7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="capnhook\hook">
+      <UniqueIdentifier>{8a068d36-2d57-4d15-8f49-64c7e756de80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="capnhook\hooklib">
+      <UniqueIdentifier>{f70d8414-e149-48dc-af8c-92c60cf292cb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\assert.h" />
+    <ClInclude Include="..\..\precompiled.h" />
+    <ClInclude Include="..\..\amex\amex.h">
+      <Filter>amex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\amex\config.h">
+      <Filter>amex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\amex\ds.h">
+      <Filter>amex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\amex\eeprom.h">
+      <Filter>amex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\amex\gpio.h">
+      <Filter>amex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\amex\jvs.h">
+      <Filter>amex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\amex\nvram.h">
+      <Filter>amex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\amex\sram.h">
+      <Filter>amex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\board\config.h">
+      <Filter>board</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\board\guid.h">
+      <Filter>board</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\board\io3.h">
+      <Filter>board</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\board\io4.h">
+      <Filter>board</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\board\sg-cmd.h">
+      <Filter>board</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\board\sg-frame.h">
+      <Filter>board</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\board\sg-led-cmd.h">
+      <Filter>board</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\board\sg-led.h">
+      <Filter>board</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\board\sg-nfc-cmd.h">
+      <Filter>board</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\board\sg-nfc.h">
+      <Filter>board</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\board\sg-reader.h">
+      <Filter>board</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\board\slider-cmd.h">
+      <Filter>board</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\board\slider-frame.h">
+      <Filter>board</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\board\vfd.h">
+      <Filter>board</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\hooklib\config.h">
+      <Filter>hooklib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\hooklib\dll.h">
+      <Filter>hooklib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\hooklib\dns.h">
+      <Filter>hooklib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\hooklib\fdshark.h">
+      <Filter>hooklib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\hooklib\gfx.h">
+      <Filter>hooklib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\hooklib\path.h">
+      <Filter>hooklib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\hooklib\reg.h">
+      <Filter>hooklib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\hooklib\setupapi.h">
+      <Filter>hooklib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\hooklib\spike.h">
+      <Filter>hooklib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\iccard\aime.h">
+      <Filter>iccard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\iccard\felica.h">
+      <Filter>iccard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\iccard\mifare.h">
+      <Filter>iccard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\jvs\jvs-bus.h">
+      <Filter>jvs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\jvs\jvs-cmd.h">
+      <Filter>jvs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\jvs\jvs-frame.h">
+      <Filter>jvs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\jvs\jvs-util.h">
+      <Filter>jvs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\platform\amvideo.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\platform\clock.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\platform\config.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\platform\dns.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\platform\hwmon.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\platform\hwreset.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\platform\misc.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\platform\netenv.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\platform\nusec.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\platform\pcbid.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\platform\platform.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\platform\vfs.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\util\async.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\util\crc.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\util\dprintf.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\util\dump.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\util\str.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\subprojects\capnhook\hook\args.h">
+      <Filter>capnhook\hook</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\subprojects\capnhook\hook\com-proxy.h">
+      <Filter>capnhook\hook</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\subprojects\capnhook\hook\hr.h">
+      <Filter>capnhook\hook</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\subprojects\capnhook\hook\iobuf.h">
+      <Filter>capnhook\hook</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\subprojects\capnhook\hook\iohook.h">
+      <Filter>capnhook\hook</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\subprojects\capnhook\hook\pe.h">
+      <Filter>capnhook\hook</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\subprojects\capnhook\hook\peb.h">
+      <Filter>capnhook\hook</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\subprojects\capnhook\hook\process.h">
+      <Filter>capnhook\hook</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\subprojects\capnhook\hook\table.h">
+      <Filter>capnhook\hook</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\subprojects\capnhook\hooklib\serial.h">
+      <Filter>capnhook\hooklib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\subprojects\capnhook\hooklib\uart.h">
+      <Filter>capnhook\hooklib</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\amex\amex.c">
+      <Filter>amex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\amex\config.c">
+      <Filter>amex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\amex\ds.c">
+      <Filter>amex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\amex\eeprom.c">
+      <Filter>amex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\amex\gpio.c">
+      <Filter>amex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\amex\guid.c">
+      <Filter>amex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\amex\jvs.c">
+      <Filter>amex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\amex\nvram.c">
+      <Filter>amex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\amex\sram.c">
+      <Filter>amex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\board\config.c">
+      <Filter>board</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\board\guid.c">
+      <Filter>board</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\board\io3.c">
+      <Filter>board</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\board\io4.c">
+      <Filter>board</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\board\sg-cmd.c">
+      <Filter>board</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\board\sg-frame.c">
+      <Filter>board</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\board\sg-led.c">
+      <Filter>board</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\board\sg-nfc.c">
+      <Filter>board</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\board\sg-reader.c">
+      <Filter>board</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\board\slider-frame.c">
+      <Filter>board</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\board\vfd.c">
+      <Filter>board</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\hooklib\config.c">
+      <Filter>hooklib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\hooklib\dll.c">
+      <Filter>hooklib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\hooklib\dns.c">
+      <Filter>hooklib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\hooklib\fdshark.c">
+      <Filter>hooklib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\hooklib\gfx.c">
+      <Filter>hooklib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\hooklib\path.c">
+      <Filter>hooklib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\hooklib\reg.c">
+      <Filter>hooklib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\hooklib\setupapi.c">
+      <Filter>hooklib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\hooklib\spike.c">
+      <Filter>hooklib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\iccard\aime.c">
+      <Filter>iccard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\iccard\felica.c">
+      <Filter>iccard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\jvs\jvs-bus.c">
+      <Filter>jvs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\jvs\jvs-frame.c">
+      <Filter>jvs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\jvs\jvs-util.c">
+      <Filter>jvs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\platform\amvideo.c">
+      <Filter>platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\platform\clock.c">
+      <Filter>platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\platform\config.c">
+      <Filter>platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\platform\dns.c">
+      <Filter>platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\platform\hwmon.c">
+      <Filter>platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\platform\hwreset.c">
+      <Filter>platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\platform\misc.c">
+      <Filter>platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\platform\netenv.c">
+      <Filter>platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\platform\nusec.c">
+      <Filter>platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\platform\pcbid.c">
+      <Filter>platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\platform\platform.c">
+      <Filter>platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\platform\vfs.c">
+      <Filter>platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\util\async.c">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\util\crc.c">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\util\dprintf.c">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\util\dump.c">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\util\str.c">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\subprojects\capnhook\hook\args.c">
+      <Filter>capnhook\hook</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\subprojects\capnhook\hook\com-proxy.c">
+      <Filter>capnhook\hook</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\subprojects\capnhook\hook\hr.c">
+      <Filter>capnhook\hook</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\subprojects\capnhook\hook\iobuf.c">
+      <Filter>capnhook\hook</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\subprojects\capnhook\hook\iohook.c">
+      <Filter>capnhook\hook</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\subprojects\capnhook\hook\pe.c">
+      <Filter>capnhook\hook</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\subprojects\capnhook\hook\peb.c">
+      <Filter>capnhook\hook</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\subprojects\capnhook\hook\process.c">
+      <Filter>capnhook\hook</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\subprojects\capnhook\hook\table.c">
+      <Filter>capnhook\hook</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\subprojects\capnhook\hooklib\serial.c">
+      <Filter>capnhook\hooklib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\subprojects\capnhook\hooklib\uart.c">
+      <Filter>capnhook\hooklib</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
