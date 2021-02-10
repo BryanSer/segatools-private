@@ -81,7 +81,7 @@ static IDirect3D9 * WINAPI my_Direct3DCreate9(UINT sdk_ver)
 {
     struct com_proxy *proxy;
     IDirect3D9Vtbl *vtbl;
-    IDirect3D9 *api;
+    IDirect3D9 *api = NULL;
     HRESULT hr;
 
     dprintf("Gfx: Direct3DCreate9 hook hit\n");

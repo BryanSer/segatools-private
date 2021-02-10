@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="chuniio">
+      <UniqueIdentifier>{b34b7c48-a201-4afb-8c90-2046e883ca11}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\chuniio\chuniio.def">
+      <Filter>chuniio</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\assert.h" />
+    <ClInclude Include="..\..\precompiled.h" />
+    <ClInclude Include="..\..\chuniio\chuniio.h">
+      <Filter>chuniio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\chuniio\config.h">
+      <Filter>chuniio</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\chuniio\chuniio.c">
+      <Filter>chuniio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\chuniio\config.c">
+      <Filter>chuniio</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

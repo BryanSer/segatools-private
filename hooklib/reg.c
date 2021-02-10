@@ -290,7 +290,7 @@ static LSTATUS reg_hook_open_locked(
         const wchar_t *name,
         HKEY *out)
 {
-    struct reg_hook_key *key;
+    struct reg_hook_key *key = NULL;
     LSTATUS err;
     size_t i;
 

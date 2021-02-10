@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="aimeio">
+      <UniqueIdentifier>{2425cb81-b185-407e-a600-10d8ff9c5a23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{9dbc8583-ac68-4afc-8d40-0f28953a4f67}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\aimeio\aimeio.def">
+      <Filter>aimeio</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\assert.h" />
+    <ClInclude Include="..\..\precompiled.h" />
+    <ClInclude Include="..\..\util\async.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\util\crc.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\util\dprintf.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\util\dump.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\util\str.h">
+      <Filter>util</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\aimeio\aimeio.c">
+      <Filter>aimeio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\util\async.c">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\util\crc.c">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\util\dprintf.c">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\util\dump.c">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\util\str.c">
+      <Filter>util</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
