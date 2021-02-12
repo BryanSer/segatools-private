@@ -48,6 +48,7 @@ subdir('divaio')
 subdir('idzio')
 subdir('mu3io')
 
+subdir('chunewhook')
 subdir('chunihook')
 subdir('divahook')
 subdir('idzhook')
