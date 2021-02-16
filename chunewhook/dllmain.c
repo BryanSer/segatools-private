@@ -31,6 +31,7 @@ static struct chunew_hook_config chunew_hook_cfg;
 static DWORD CALLBACK chunew_pre_startup(void)
 {
     HMODULE d3dc;
+    HMODULE dbghelp;
     HRESULT hr;
 
     dprintf("--- Begin chunew_pre_startup ---\n");
@@ -44,6 +45,17 @@ static DWORD CALLBACK chunew_pre_startup(void)
     }
     else {
         dprintf("Failed to load shader compiler!\n");
+    }
+
+    /* Pin dbghelp so the path hooks apply to it. */
+
+    dbghelp = LoadLibraryW(L"dbghelp.dll");
+
+    if (dbghelp != NULL) {
+        dprintf("Pinned debug helper library, hMod=%p\n", dbghelp);
+    }
+    else {
+        dprintf("Failed to load debug helper library!\n");
     }
 
     /* Config load */
