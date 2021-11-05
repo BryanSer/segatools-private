@@ -10,10 +10,10 @@ shared_library(
         capnhook.get_variable('hooklib_dep'),
     ],
     link_with : [
-        aimeio_dll,
+        aimeio_lib,
         amex_lib,
         board_lib,
-        divaio_dll,
+        divaio_lib,
         hooklib_lib,
         jvs_lib,
         platform_lib,
@@ -22,6 +22,8 @@ shared_library(
     sources : [
         'config.c',
         'config.h',
+        'diva-dll.c',
+        'diva-dll.h',
         'dllmain.c',
         'jvs.c',
         'jvs.h',

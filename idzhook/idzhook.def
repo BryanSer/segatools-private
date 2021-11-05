@@ -1,1 +1,19 @@
 LIBRARY idzhook
+
+EXPORTS
+    aime_io_get_api_version
+    aime_io_init
+    aime_io_led_set_color
+    aime_io_nfc_get_aime_id
+    aime_io_nfc_get_felica_id
+    aime_io_nfc_poll
+    amDllVideoClose @2
+    amDllVideoGetVBiosVersion @4
+    amDllVideoOpen @1
+    amDllVideoSetResolution @3
+    idz_io_get_api_version
+    idz_io_jvs_init
+    idz_io_jvs_read_analogs
+    idz_io_jvs_read_buttons
+    idz_io_jvs_read_coin_counter
+    idz_io_jvs_read_shifter

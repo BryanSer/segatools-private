@@ -1,16 +1,20 @@
 #include <windows.h>
 
+#include <stdlib.h>
+
 #include "board/io4.h"
 #include "board/sg-reader.h"
 #include "board/vfd.h"
 
 #include "hook/process.h"
 
+#include "hooklib/dvd.h"
 #include "hooklib/serial.h"
 #include "hooklib/spike.h"
 
 #include "mu3hook/config.h"
 #include "mu3hook/io4.h"
+#include "mu3hook/mu3-dll.h"
 #include "mu3hook/unity.h"
 
 #include "platform/platform.h"
@@ -33,7 +37,8 @@ static DWORD CALLBACK mu3_pre_startup(void)
 
     /* Hook Win32 APIs */
 
-    gfx_hook_init(&mu3_hook_cfg.gfx);
+    dvd_hook_init(&mu3_hook_cfg.dvd, mu3_hook_mod);
+    gfx_hook_init(&mu3_hook_cfg.gfx, mu3_hook_mod);
     serial_hook_init();
 
     /* Initialize emulation hooks */
@@ -45,25 +50,31 @@ static DWORD CALLBACK mu3_pre_startup(void)
             mu3_hook_mod);
 
     if (FAILED(hr)) {
-        return hr;
+        goto fail;
     }
 
-    hr = sg_reader_hook_init(&mu3_hook_cfg.aime, 1);
+    hr = sg_reader_hook_init(&mu3_hook_cfg.aime, 1, mu3_hook_mod);
 
     if (FAILED(hr)) {
-        return hr;
+        goto fail;
     }
 
     hr = vfd_hook_init(2);
 
     if (FAILED(hr)) {
-        return hr;
+        goto fail;
+    }
+
+    hr = mu3_dll_init(&mu3_hook_cfg.dll, mu3_hook_mod);
+
+    if (FAILED(hr)) {
+        goto fail;
     }
 
     hr = mu3_io4_hook_init(&mu3_hook_cfg.io4);
 
     if (FAILED(hr)) {
-        return hr;
+        goto fail;
     }
 
     /* Initialize Unity native plugin DLL hooks
@@ -82,6 +93,9 @@ static DWORD CALLBACK mu3_pre_startup(void)
     /* Jump to EXE start address */
 
     return mu3_startup();
+
+fail:
+    ExitProcess(EXIT_FAILURE);
 }
 
 BOOL WINAPI DllMain(HMODULE mod, DWORD cause, void *ctx)

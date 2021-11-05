@@ -101,5 +101,7 @@ static HRESULT hwreset_handle_ioctl(struct irp *irp)
 
 static HRESULT hwreset_ioctl_restart(struct irp *irp)
 {
+    dprintf("Hwreset: Reset requested\n");
+
     return iobuf_write_le32(&irp->read, 1);
 }

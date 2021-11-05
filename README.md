@@ -1,40 +1,31 @@
 # Segatools
 
-## Compiling on Windows:
+Version: `v005`
 
-Prerequisites:
+Loaders and hardware emulators for SEGA games that run on the Nu and ALLS platforms.
 
-+ [Mingw-w64](http://mingw-w64.org/doku.php/download)
-+ [Meson Build](https://mesonbuild.com/SimpleStart.html)
-+ [Chocolatey](https://chocolatey.org/install)
+## List of supported games
 
-Quick start on a Windows build host:
+* Chunithm
+  * [Chunithm (Plus)](doc/chunihook.md)
+  * [Chunithm Air (Plus)](doc/chunihook.md)
+  * [Chunithm Star (Plus)](doc/chunihook.md)
+  * [Chunithm Amazon (Plus)](doc/chunihook.md)
+  * [Chunithm Crystal (Plus)](doc/chunihook.md)
+* Initial D
+  * [Initial D Arcade Stage Zero](doc/idzhook.md)
 
-```
-# To install Ninja on Windows:
-$ choco install ninja
+## End-users
 
-# Build with Meson and Ninja commands:
-$ meson --cross cross-mingw-32.txt _build32
-$ ninja -C _build32
-$ meson --cross cross-mingw-64.txt _build64
-$ ninja -C _build64
+For setup and configuration guides, refer to the dedicated documents available for each game, see
+[the links in the previous section](#list-of-supported-games).
 
-# To generate Visual Studio projects:
-$ meson --backend vs2019 --cross cross-mingw-64.txt _build64
-```
+## Contributors
 
-## Compiling on Linux:
+If you are/want to be a contributor of any kind, e.g. new features, bug fixes, documentation improvements, ..., please
+read the [contributing documentation](CONTRIBUTING.md), first.
 
-Quick start on a Linux build host:
+## Developers
 
-```
-# Install Meson and a recent build of MinGW-w64, then:
-
-$ meson --cross cross-mingw-32.txt _build32
-$ ninja -C _build32
-$ meson --cross cross-mingw-64.txt _build64
-$ ninja -C _build64
-```
-
-Building on MSYS2 is also possible; consult Meson documentation for details.
+For development setup and instructions how to build the project, refer to the
+[dedicated development documentation](doc/development.md).

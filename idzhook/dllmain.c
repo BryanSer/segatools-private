@@ -1,6 +1,5 @@
 #include <windows.h>
 
-#include <stddef.h>
 #include <stdlib.h>
 
 #include "amex/amex.h"
@@ -9,11 +8,12 @@
 
 #include "hook/process.h"
 
-#include "hooklib/gfx.h"
+#include "hooklib/dvd.h"
 #include "hooklib/serial.h"
 #include "hooklib/spike.h"
 
 #include "idzhook/config.h"
+#include "idzhook/idz-dll.h"
 #include "idzhook/jvs.h"
 #include "idzhook/zinput.h"
 
@@ -39,6 +39,7 @@ static DWORD CALLBACK idz_pre_startup(void)
 
     serial_hook_init();
     zinput_hook_init(&idz_hook_cfg.zinput);
+    dvd_hook_init(&idz_hook_cfg.dvd, idz_hook_mod);
 
     /* Initialize emulation hooks */
 
@@ -49,19 +50,25 @@ static DWORD CALLBACK idz_pre_startup(void)
             idz_hook_mod);
 
     if (FAILED(hr)) {
-        return hr;
+        goto fail;
+    }
+
+    hr = idz_dll_init(&idz_hook_cfg.dll, idz_hook_mod);
+
+    if (FAILED(hr)) {
+        goto fail;
     }
 
     hr = amex_hook_init(&idz_hook_cfg.amex, idz_jvs_init);
 
     if (FAILED(hr)) {
-        return hr;
+        goto fail;
     }
 
-    hr = sg_reader_hook_init(&idz_hook_cfg.aime, 10);
+    hr = sg_reader_hook_init(&idz_hook_cfg.aime, 10, idz_hook_mod);
 
     if (FAILED(hr)) {
-        return hr;
+        goto fail;
     }
 
     /* Initialize debug helpers */
@@ -73,6 +80,9 @@ static DWORD CALLBACK idz_pre_startup(void)
     /* Jump to EXE start address */
 
     return idz_startup();
+
+fail:
+    ExitProcess(EXIT_FAILURE);
 }
 
 BOOL WINAPI DllMain(HMODULE mod, DWORD cause, void *ctx)

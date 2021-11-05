@@ -13,22 +13,36 @@
 #include "util/dprintf.h"
 #include "util/str.h"
 
-static HMODULE idz_io_hmodule;
 static struct idz_io_config idz_io_cfg;
 static const struct idz_io_backend *idz_io_backend;
 static bool idz_io_coin;
 static uint16_t idz_io_coins;
 
+uint16_t idz_io_get_api_version(void)
+{
+    return 0x0100;
+}
+
 HRESULT idz_io_jvs_init(void)
 {
+    HINSTANCE inst;
     HRESULT hr;
 
     assert(idz_io_backend == NULL);
 
+    inst = GetModuleHandleW(NULL);
+
+    if (inst == NULL) {
+        hr = HRESULT_FROM_WIN32(GetLastError());
+        dprintf("GetModuleHandleW failed: %lx\n", hr);
+
+        return hr;
+    }
+
     idz_io_config_load(&idz_io_cfg, L".\\segatools.ini");
 
     if (wstr_ieq(idz_io_cfg.mode, L"dinput")) {
-        hr = idz_di_init(&idz_io_cfg.di, idz_io_hmodule, &idz_io_backend);
+        hr = idz_di_init(&idz_io_cfg.di, inst, &idz_io_backend);
     } else if (wstr_ieq(idz_io_cfg.mode, L"xinput")) {
         hr = idz_xi_init(&idz_io_cfg.xi, &idz_io_backend);
     } else {
@@ -108,13 +122,4 @@ void idz_io_jvs_read_coin_counter(uint16_t *out)
     }
 
     *out = idz_io_coins;
-}
-
-BOOL WINAPI DllMain(HMODULE self, DWORD reason, void *ctx)
-{
-    if (reason == DLL_PROCESS_ATTACH) {
-        idz_io_hmodule = self;
-    }
-
-    return TRUE;
 }

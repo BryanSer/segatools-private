@@ -9,7 +9,7 @@
 
 #include "board/io3.h"
 
-#include "chuniio/chuniio.h"
+#include "chunihook/chuni-dll.h"
 
 #include "jvs/jvs-bus.h"
 
@@ -31,13 +31,23 @@ static const struct io3_ops chunithm_jvs_io3_ops = {
     .read_coin_counter  = chunithm_jvs_read_coin_counter,
 };
 
-static const struct chunithm_jvs_ir_mask chunithm_jvs_ir_masks[] = {
+// Incorrect IR beam mappings retained for backward compatibility
+static const struct chunithm_jvs_ir_mask chunithm_jvs_ir_masks_v1[] = {
     { 0x0000, 0x0020 },
     { 0x0020, 0x0000 },
     { 0x0000, 0x0010 },
     { 0x0010, 0x0000 },
     { 0x0000, 0x0008 },
     { 0x0008, 0x0000 },
+};
+
+static const struct chunithm_jvs_ir_mask chunithm_jvs_ir_masks[] = {
+    { 0x0020, 0x0000 },
+    { 0x0000, 0x0020 },
+    { 0x0010, 0x0000 },
+    { 0x0000, 0x0010 },
+    { 0x0008, 0x0000 },
+    { 0x0000, 0x0008 },
 };
 
 static struct io3 chunithm_jvs_io3;
@@ -47,9 +57,10 @@ HRESULT chunithm_jvs_init(struct jvs_node **out)
     HRESULT hr;
 
     assert(out != NULL);
+    assert(chuni_dll.jvs_init != NULL);
 
-    dprintf("JVS I/O: Starting Chunithm backend DLL\n");
-    hr = chuni_io_jvs_init();
+    dprintf("JVS I/O: Starting IO backend\n");
+    hr = chuni_dll.jvs_init();
 
     if (FAILED(hr)) {
         dprintf("JVS I/O: Backend error, I/O disconnected: %x\n", (int) hr);
@@ -65,16 +76,26 @@ HRESULT chunithm_jvs_init(struct jvs_node **out)
 
 static void chunithm_jvs_read_switches(void *ctx, struct io3_switch_state *out)
 {
+    const struct chunithm_jvs_ir_mask *masks;
     uint8_t opbtn;
     uint8_t beams;
     size_t i;
 
     assert(out != NULL);
+    assert(chuni_dll.jvs_poll != NULL);
+
+    if (chuni_dll.api_version >= 0x0101) {
+        // Use correct mapping
+        masks = chunithm_jvs_ir_masks;
+    } else {
+        // Use backwards-compatible incorrect mapping
+        masks = chunithm_jvs_ir_masks_v1;
+    }
 
     opbtn = 0;
     beams = 0;
 
-    chuni_io_jvs_poll(&opbtn, &beams);
+    chuni_dll.jvs_poll(&opbtn, &beams);
 
     out->system = 0x00;
     out->p1 = 0x0000;
@@ -93,8 +114,8 @@ static void chunithm_jvs_read_switches(void *ctx, struct io3_switch_state *out)
     for (i = 0 ; i < 6 ; i++) {
         /* Beam "press" is active-low hence the ~ */
         if (~beams & (1 << i)) {
-            out->p1 |= chunithm_jvs_ir_masks[i].p1;
-            out->p2 |= chunithm_jvs_ir_masks[i].p2;
+            out->p1 |= masks[i].p1;
+            out->p2 |= masks[i].p2;
         }
     }
 }
@@ -105,10 +126,11 @@ static void chunithm_jvs_read_coin_counter(
         uint16_t *out)
 {
     assert(out != NULL);
+    assert(chuni_dll.jvs_read_coin_counter != NULL);
 
     if (slot_no > 0) {
         return;
     }
 
-    chuni_io_jvs_read_coin_counter(out);
+    chuni_dll.jvs_read_coin_counter(out);
 }

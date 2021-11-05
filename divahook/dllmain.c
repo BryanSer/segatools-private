@@ -1,6 +1,5 @@
 #include <windows.h>
 
-#include <stddef.h>
 #include <stdlib.h>
 
 #include "amex/amex.h"
@@ -8,6 +7,7 @@
 #include "board/sg-reader.h"
 
 #include "divahook/config.h"
+#include "divahook/diva-dll.h"
 #include "divahook/jvs.h"
 #include "divahook/slider.h"
 
@@ -48,25 +48,31 @@ static DWORD CALLBACK diva_pre_startup(void)
             diva_hook_mod);
 
     if (FAILED(hr)) {
-        return EXIT_FAILURE;
+        goto fail;
+    }
+
+    hr = diva_dll_init(&diva_hook_cfg.dll, diva_hook_mod);
+
+    if (FAILED(hr)) {
+        goto fail;
     }
 
     hr = amex_hook_init(&diva_hook_cfg.amex, diva_jvs_init);
 
     if (FAILED(hr)) {
-        return EXIT_FAILURE;
+        goto fail;
     }
 
-    hr = sg_reader_hook_init(&diva_hook_cfg.aime, 10);
+    hr = sg_reader_hook_init(&diva_hook_cfg.aime, 10, diva_hook_mod);
 
     if (FAILED(hr)) {
-        return EXIT_FAILURE;
+        goto fail;
     }
 
     hr = slider_hook_init(&diva_hook_cfg.slider);
 
     if (FAILED(hr)) {
-        return EXIT_FAILURE;
+        goto fail;
     }
 
     /* Initialize debug helpers */
@@ -78,6 +84,9 @@ static DWORD CALLBACK diva_pre_startup(void)
     /* Jump to EXE start address */
 
     return diva_startup();
+
+fail:
+    ExitProcess(EXIT_FAILURE);
 }
 
 BOOL WINAPI DllMain(HMODULE mod, DWORD cause, void *ctx)
