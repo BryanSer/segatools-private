@@ -112,6 +112,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
+      <ModuleDefinitionFile>..\..\chunihook\chunihook.def</ModuleDefinitionFile>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -143,6 +144,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
+      <ModuleDefinitionFile>..\..\chunihook\chunihook.def</ModuleDefinitionFile>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -177,6 +179,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
+      <ModuleDefinitionFile>..\..\chunihook\chunihook.def</ModuleDefinitionFile>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -208,6 +211,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
+      <ModuleDefinitionFile>..\..\chunihook\chunihook.def</ModuleDefinitionFile>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -218,11 +222,13 @@
   <ItemGroup>
     <ClInclude Include="..\..\assert.h" />
     <ClInclude Include="..\..\precompiled.h" />
+    <ClInclude Include="..\..\chunihook\chuni-dll.h" />
     <ClInclude Include="..\..\chunihook\config.h" />
     <ClInclude Include="..\..\chunihook\jvs.h" />
     <ClInclude Include="..\..\chunihook\slider.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\chunihook\chuni-dll.c" />
     <ClCompile Include="..\..\chunihook\config.c" />
     <ClCompile Include="..\..\chunihook\dllmain.c" />
     <ClCompile Include="..\..\chunihook\jvs.c" />

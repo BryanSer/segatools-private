@@ -9,47 +9,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\aimeio\aimeio.def">
-      <Filter>aimeio</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\assert.h" />
     <ClInclude Include="..\..\precompiled.h" />
-    <ClInclude Include="..\..\util\async.h">
-      <Filter>util</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\util\crc.h">
       <Filter>util</Filter>
     </ClInclude>
     <ClInclude Include="..\..\util\dprintf.h">
       <Filter>util</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\util\dump.h">
-      <Filter>util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\util\str.h">
-      <Filter>util</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\aimeio\aimeio.c">
       <Filter>aimeio</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\util\async.c">
-      <Filter>util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\util\crc.c">
-      <Filter>util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\util\dprintf.c">
-      <Filter>util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\util\dump.c">
-      <Filter>util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\util\str.c">
-      <Filter>util</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

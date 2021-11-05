@@ -200,16 +200,17 @@
     <ClInclude Include="..\..\amex\jvs.h" />
     <ClInclude Include="..\..\amex\nvram.h" />
     <ClInclude Include="..\..\amex\sram.h" />
+    <ClInclude Include="..\..\board\aime-dll.h" />
     <ClInclude Include="..\..\board\config.h" />
     <ClInclude Include="..\..\board\guid.h" />
     <ClInclude Include="..\..\board\io3.h" />
     <ClInclude Include="..\..\board\io4.h" />
     <ClInclude Include="..\..\board\sg-cmd.h" />
     <ClInclude Include="..\..\board\sg-frame.h" />
-    <ClInclude Include="..\..\board\sg-led-cmd.h" />
     <ClInclude Include="..\..\board\sg-led.h" />
-    <ClInclude Include="..\..\board\sg-nfc-cmd.h" />
+    <ClInclude Include="..\..\board\sg-led-cmd.h" />
     <ClInclude Include="..\..\board\sg-nfc.h" />
+    <ClInclude Include="..\..\board\sg-nfc-cmd.h" />
     <ClInclude Include="..\..\board\sg-reader.h" />
     <ClInclude Include="..\..\board\slider-cmd.h" />
     <ClInclude Include="..\..\board\slider-frame.h" />
@@ -217,6 +218,7 @@
     <ClInclude Include="..\..\hooklib\config.h" />
     <ClInclude Include="..\..\hooklib\dll.h" />
     <ClInclude Include="..\..\hooklib\dns.h" />
+    <ClInclude Include="..\..\hooklib\dvd.h" />
     <ClInclude Include="..\..\hooklib\fdshark.h" />
     <ClInclude Include="..\..\hooklib\gfx.h" />
     <ClInclude Include="..\..\hooklib\path.h" />
@@ -244,6 +246,7 @@
     <ClInclude Include="..\..\platform\vfs.h" />
     <ClInclude Include="..\..\util\async.h" />
     <ClInclude Include="..\..\util\crc.h" />
+    <ClInclude Include="..\..\util\dll-bind.h" />
     <ClInclude Include="..\..\util\dprintf.h" />
     <ClInclude Include="..\..\util\dump.h" />
     <ClInclude Include="..\..\util\str.h" />
@@ -269,6 +272,7 @@
     <ClCompile Include="..\..\amex\jvs.c" />
     <ClCompile Include="..\..\amex\nvram.c" />
     <ClCompile Include="..\..\amex\sram.c" />
+    <ClCompile Include="..\..\board\aime-dll.c" />
     <ClCompile Include="..\..\board\config.c" />
     <ClCompile Include="..\..\board\guid.c" />
     <ClCompile Include="..\..\board\io3.c" />
@@ -283,6 +287,7 @@
     <ClCompile Include="..\..\hooklib\config.c" />
     <ClCompile Include="..\..\hooklib\dll.c" />
     <ClCompile Include="..\..\hooklib\dns.c" />
+    <ClCompile Include="..\..\hooklib\dvd.c" />
     <ClCompile Include="..\..\hooklib\fdshark.c" />
     <ClCompile Include="..\..\hooklib\gfx.c" />
     <ClCompile Include="..\..\hooklib\path.c" />
@@ -308,6 +313,7 @@
     <ClCompile Include="..\..\platform\vfs.c" />
     <ClCompile Include="..\..\util\async.c" />
     <ClCompile Include="..\..\util\crc.c" />
+    <ClCompile Include="..\..\util\dll-bind.c" />
     <ClCompile Include="..\..\util\dprintf.c" />
     <ClCompile Include="..\..\util\dump.c" />
     <ClCompile Include="..\..\util\str.c" />

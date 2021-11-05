@@ -59,6 +59,9 @@
     <ClInclude Include="..\..\amex\sram.h">
       <Filter>amex</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\board\aime-dll.h">
+      <Filter>board</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\board\config.h">
       <Filter>board</Filter>
     </ClInclude>
@@ -77,16 +80,16 @@
     <ClInclude Include="..\..\board\sg-frame.h">
       <Filter>board</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\board\sg-led-cmd.h">
-      <Filter>board</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\board\sg-led.h">
       <Filter>board</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\board\sg-nfc-cmd.h">
+    <ClInclude Include="..\..\board\sg-led-cmd.h">
       <Filter>board</Filter>
     </ClInclude>
     <ClInclude Include="..\..\board\sg-nfc.h">
+      <Filter>board</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\board\sg-nfc-cmd.h">
       <Filter>board</Filter>
     </ClInclude>
     <ClInclude Include="..\..\board\sg-reader.h">
@@ -108,6 +111,9 @@
       <Filter>hooklib</Filter>
     </ClInclude>
     <ClInclude Include="..\..\hooklib\dns.h">
+      <Filter>hooklib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\hooklib\dvd.h">
       <Filter>hooklib</Filter>
     </ClInclude>
     <ClInclude Include="..\..\hooklib\fdshark.h">
@@ -191,6 +197,9 @@
     <ClInclude Include="..\..\util\crc.h">
       <Filter>util</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\util\dll-bind.h">
+      <Filter>util</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\util\dprintf.h">
       <Filter>util</Filter>
     </ClInclude>
@@ -262,6 +271,9 @@
     <ClCompile Include="..\..\amex\sram.c">
       <Filter>amex</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\board\aime-dll.c">
+      <Filter>board</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\board\config.c">
       <Filter>board</Filter>
     </ClCompile>
@@ -302,6 +314,9 @@
       <Filter>hooklib</Filter>
     </ClCompile>
     <ClCompile Include="..\..\hooklib\dns.c">
+      <Filter>hooklib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\hooklib\dvd.c">
       <Filter>hooklib</Filter>
     </ClCompile>
     <ClCompile Include="..\..\hooklib\fdshark.c">
@@ -377,6 +392,9 @@
       <Filter>util</Filter>
     </ClCompile>
     <ClCompile Include="..\..\util\crc.c">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\util\dll-bind.c">
       <Filter>util</Filter>
     </ClCompile>
     <ClCompile Include="..\..\util\dprintf.c">
