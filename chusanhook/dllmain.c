@@ -8,9 +8,9 @@
 #include "board/sg-reader.h"
 #include "board/vfd.h"
 
-#include "chunewhook/config.h"
-#include "chunewhook/io4.h"
-#include "chunewhook/slider.h"
+#include "chusanhook/config.h"
+#include "chusanhook/io4.h"
+#include "chusanhook/slider.h"
 
 #include "chuniio/chuniio.h"
 
@@ -24,17 +24,17 @@
 
 #include "util/dprintf.h"
 
-static HMODULE chunew_hook_mod;
-static process_entry_t chunew_startup;
-static struct chunew_hook_config chunew_hook_cfg;
+static HMODULE chusan_hook_mod;
+static process_entry_t chusan_startup;
+static struct chusan_hook_config chusan_hook_cfg;
 
-static DWORD CALLBACK chunew_pre_startup(void)
+static DWORD CALLBACK chusan_pre_startup(void)
 {
     HMODULE d3dc;
     HMODULE dbghelp;
     HRESULT hr;
 
-    dprintf("--- Begin chunew_pre_startup ---\n");
+    dprintf("--- Begin chusan_pre_startup ---\n");
 
     /* Pin the D3D shader compiler. This makes startup much faster. */
 
@@ -60,26 +60,26 @@ static DWORD CALLBACK chunew_pre_startup(void)
 
     /* Config load */
 
-    chunew_hook_config_load(&chunew_hook_cfg, L".\\segatools.ini");
+    chusan_hook_config_load(&chusan_hook_cfg, L".\\segatools.ini");
 
     /* Hook Win32 APIs */
 
-    gfx_hook_init(&chunew_hook_cfg.gfx);
+    gfx_hook_init(&chusan_hook_cfg.gfx, chusan_hook_mod);
     serial_hook_init();
 
     /* Initialize emulation hooks */
 
     hr = platform_hook_init(
-        &chunew_hook_cfg.platform,
-        "SDGS",
+        &chusan_hook_cfg.platform,
+        "SDHD",
         "ACA2",
-        chunew_hook_mod);
+        chusan_hook_mod);
 
     if (FAILED(hr)) {
         return hr;
     }
 
-    hr = sg_reader_hook_init(&chunew_hook_cfg.aime, 4);
+    hr = sg_reader_hook_init(&chusan_hook_cfg.aime, 4, chusan_hook_mod);
 
     if (FAILED(hr)) {
         return hr;
@@ -91,13 +91,13 @@ static DWORD CALLBACK chunew_pre_startup(void)
         return hr;
     }
 
-    hr = chunew_io4_hook_init(&chunew_hook_cfg.io4);
+    hr = chusan_io4_hook_init(&chusan_hook_cfg.io4);
 
     if (FAILED(hr)) {
         return hr;
     }
 
-    hr = slider_hook_init(&chunew_hook_cfg.slider);
+    hr = slider_hook_init(&chusan_hook_cfg.slider);
 
     if (FAILED(hr)) {
         return hr;
@@ -107,11 +107,11 @@ static DWORD CALLBACK chunew_pre_startup(void)
 
     spike_hook_init(L".\\segatools.ini");
 
-    dprintf("---  End  chunew_pre_startup ---\n");
+    dprintf("---  End  chusan_pre_startup ---\n");
 
     /* Jump to EXE start address */
 
-    return chunew_startup();
+    return chusan_startup();
 }
 
 BOOL WINAPI DllMain(HMODULE mod, DWORD cause, void* ctx)
@@ -122,9 +122,9 @@ BOOL WINAPI DllMain(HMODULE mod, DWORD cause, void* ctx)
         return TRUE;
     }
 
-    chunew_hook_mod = mod;
+    chusan_hook_mod = mod;
 
-    hr = process_hijack_startup(chunew_pre_startup, &chunew_startup);
+    hr = process_hijack_startup(chusan_pre_startup, &chusan_startup);
 
     if (!SUCCEEDED(hr)) {
         dprintf("Failed to hijack process startup: %x\n", (int)hr);

@@ -24,17 +24,17 @@ static const struct chunithm_jvs_ir_mask chunithm_jvs_ir_masks[] = {
     { 1 << 11, 0 },
 };
 
-static HRESULT chunew_io4_poll(void* ctx, struct io4_state* state);
+static HRESULT chusan_io4_poll(void* ctx, struct io4_state* state);
 
-static const struct io4_ops chunew_io4_ops = {
-    .poll = chunew_io4_poll,
+static const struct io4_ops chusan_io4_ops = {
+    .poll = chusan_io4_poll,
 };
 
-HRESULT chunew_io4_hook_init(const struct io4_config* cfg)
+HRESULT chusan_io4_hook_init(const struct io4_config* cfg)
 {
     HRESULT hr;
 
-    hr = io4_hook_init(cfg, &chunew_io4_ops, NULL);
+    hr = io4_hook_init(cfg, &chusan_io4_ops, NULL);
 
     if (FAILED(hr)) {
         return hr;
@@ -43,7 +43,7 @@ HRESULT chunew_io4_hook_init(const struct io4_config* cfg)
     return chuni_io_jvs_init();
 }
 
-static HRESULT chunew_io4_poll(void* ctx, struct io4_state* state)
+static HRESULT chusan_io4_poll(void* ctx, struct io4_state* state)
 {
     uint8_t opbtn;
     uint8_t beams;

@@ -8,7 +8,7 @@
 
 #include "platform/config.h"
 
-#include "chunewhook/config.h"
+#include "chusanhook/config.h"
 
 void slider_config_load(struct slider_config* cfg, const wchar_t* filename)
 {
@@ -18,8 +18,8 @@ void slider_config_load(struct slider_config* cfg, const wchar_t* filename)
     cfg->enable = GetPrivateProfileIntW(L"slider", L"enable", 1, filename);
 }
 
-void chunew_hook_config_load(
-        struct chunew_hook_config *cfg,
+void chusan_hook_config_load(
+        struct chusan_hook_config *cfg,
         const wchar_t *filename)
 {
     assert(cfg != NULL);

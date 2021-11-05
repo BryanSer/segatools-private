@@ -8,9 +8,9 @@
 
 #include "platform/config.h"
 
-#include "chunewhook/slider.h"
+#include "chusanhook/slider.h"
 
-struct chunew_hook_config {
+struct chusan_hook_config {
     struct platform_config platform;
     struct aime_config aime;
     struct io4_config io4;
@@ -19,6 +19,6 @@ struct chunew_hook_config {
 };
 
 void slider_config_load(struct slider_config* cfg, const wchar_t* filename);
-void chunew_hook_config_load(
-        struct chunew_hook_config *cfg,
+void chusan_hook_config_load(
+        struct chusan_hook_config *cfg,
         const wchar_t *filename);

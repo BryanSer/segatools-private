@@ -1,5 +1,5 @@
 shared_library(
-    'chunewhook',
+    'chusanhook',
     name_prefix : '',
     include_directories : inc,
     implicit_include_directories : false,
@@ -9,9 +9,9 @@ shared_library(
         capnhook.get_variable('hooklib_dep'),
     ],
     link_with : [
-        aimeio_dll,
+        aimeio_lib,
         board_lib,
-        chuniio_dll,
+        chuniio_lib,
         hooklib_lib,
         platform_lib,
         util_lib,
