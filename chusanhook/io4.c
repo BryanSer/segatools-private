@@ -6,8 +6,7 @@
 
 #include "board/io4.h"
 
-#include "chuniio/chuniio.h"
-
+#include "chusanhook/chuni-dll.h"
 #include "util/dprintf.h"
 
 struct chunithm_jvs_ir_mask {
@@ -15,13 +14,23 @@ struct chunithm_jvs_ir_mask {
     uint16_t p2;
 };
 
-static const struct chunithm_jvs_ir_mask chunithm_jvs_ir_masks[] = {
+// Incorrect IR beam mappings retained for backward compatibility
+static const struct chunithm_jvs_ir_mask chunithm_jvs_ir_masks_v1[] = {
     { 0, 1 << 13 },
     { 1 << 13, 0 },
     { 0, 1 << 12 },
     { 1 << 12, 0 },
     { 0, 1 << 11 },
     { 1 << 11, 0 },
+};
+
+static const struct chunithm_jvs_ir_mask chunithm_jvs_ir_masks[] = {
+    { 1 << 13, 0 },
+    { 0, 1 << 13 },
+    { 1 << 12, 0 },
+    { 0, 1 << 12 },
+    { 1 << 11, 0 },
+    { 0, 1 << 11 },
 };
 
 static HRESULT chusan_io4_poll(void* ctx, struct io4_state* state);
@@ -34,13 +43,20 @@ HRESULT chusan_io4_hook_init(const struct io4_config* cfg)
 {
     HRESULT hr;
 
-    hr = io4_hook_init(cfg, &chusan_io4_ops, NULL);
+    assert(chuni_dll.jvs_init != NULL);
+
+    dprintf("USB I/O: Starting IO backend\n");
+    hr = chuni_dll.jvs_init();
 
     if (FAILED(hr)) {
+        dprintf("USB I/O: Backend error, I/O disconnected: %x\n", (int)hr);
+
         return hr;
     }
 
-    return chuni_io_jvs_init();
+    io4_hook_init(cfg, &chusan_io4_ops, NULL);
+
+    return S_OK;
 }
 
 static HRESULT chusan_io4_poll(void* ctx, struct io4_state* state)
@@ -54,7 +70,7 @@ static HRESULT chusan_io4_poll(void* ctx, struct io4_state* state)
     opbtn = 0;
     beams = 0;
 
-    chuni_io_jvs_poll(&opbtn, &beams);
+    chuni_dll.jvs_poll(&opbtn, &beams);
 
     if (opbtn & 0x01) {
         state->buttons[0] |= IO4_BUTTON_TEST;

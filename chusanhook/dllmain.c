@@ -42,8 +42,7 @@ static DWORD CALLBACK chusan_pre_startup(void)
 
     if (d3dc != NULL) {
         dprintf("Pinned shader compiler, hMod=%p\n", d3dc);
-    }
-    else {
+    } else {
         dprintf("Failed to load shader compiler!\n");
     }
 
@@ -53,8 +52,7 @@ static DWORD CALLBACK chusan_pre_startup(void)
 
     if (dbghelp != NULL) {
         dprintf("Pinned debug helper library, hMod=%p\n", dbghelp);
-    }
-    else {
+    } else {
         dprintf("Failed to load debug helper library!\n");
     }
 
@@ -76,31 +74,37 @@ static DWORD CALLBACK chusan_pre_startup(void)
         chusan_hook_mod);
 
     if (FAILED(hr)) {
-        return hr;
+        goto fail;
     }
 
-    hr = sg_reader_hook_init(&chusan_hook_cfg.aime, 4, chusan_hook_mod);
+    hr = chuni_dll_init(&chusan_hook_cfg.dll, chusan_hook_mod);
 
     if (FAILED(hr)) {
-        return hr;
-    }
-
-    hr = vfd_hook_init(2);
-
-    if (FAILED(hr)) {
-        return hr;
+        goto fail;
     }
 
     hr = chusan_io4_hook_init(&chusan_hook_cfg.io4);
 
     if (FAILED(hr)) {
-        return hr;
+        goto fail;
     }
 
     hr = slider_hook_init(&chusan_hook_cfg.slider);
 
     if (FAILED(hr)) {
-        return hr;
+        goto fail;
+    }
+
+    hr = sg_reader_hook_init(&chusan_hook_cfg.aime, 4, chusan_hook_mod);
+
+    if (FAILED(hr)) {
+        goto fail;
+    }
+
+    hr = vfd_hook_init(2);
+
+    if (FAILED(hr)) {
+        goto fail;
     }
 
     /* Initialize debug helpers */
@@ -112,9 +116,12 @@ static DWORD CALLBACK chusan_pre_startup(void)
     /* Jump to EXE start address */
 
     return chusan_startup();
+
+fail:
+    ExitProcess(EXIT_FAILURE);
 }
 
-BOOL WINAPI DllMain(HMODULE mod, DWORD cause, void* ctx)
+BOOL WINAPI DllMain(HMODULE mod, DWORD cause, void *ctx)
 {
     HRESULT hr;
 
@@ -127,7 +134,7 @@ BOOL WINAPI DllMain(HMODULE mod, DWORD cause, void* ctx)
     hr = process_hijack_startup(chusan_pre_startup, &chusan_startup);
 
     if (!SUCCEEDED(hr)) {
-        dprintf("Failed to hijack process startup: %x\n", (int)hr);
+        dprintf("Failed to hijack process startup: %x\n", (int) hr);
     }
 
     return SUCCEEDED(hr);
