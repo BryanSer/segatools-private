@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chuniio", "chuniio\chuniio.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chunihook", "chunihook\chunihook.vcxproj", "{DB4382BE-5535-4822-A9CA-D52B17AF283F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chusanhook", "chusanhook\chusanhook.vcxproj", "{478E401C-6CDB-4670-A4B9-D98D81E50D6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{DB4382BE-5535-4822-A9CA-D52B17AF283F}.Release|x64.Build.0 = Release|x64
 		{DB4382BE-5535-4822-A9CA-D52B17AF283F}.Release|x86.ActiveCfg = Release|Win32
 		{DB4382BE-5535-4822-A9CA-D52B17AF283F}.Release|x86.Build.0 = Release|Win32
+		{478E401C-6CDB-4670-A4B9-D98D81E50D6C}.Debug|x64.ActiveCfg = Debug|x64
+		{478E401C-6CDB-4670-A4B9-D98D81E50D6C}.Debug|x64.Build.0 = Debug|x64
+		{478E401C-6CDB-4670-A4B9-D98D81E50D6C}.Debug|x86.ActiveCfg = Debug|Win32
+		{478E401C-6CDB-4670-A4B9-D98D81E50D6C}.Debug|x86.Build.0 = Debug|Win32
+		{478E401C-6CDB-4670-A4B9-D98D81E50D6C}.Release|x64.ActiveCfg = Release|x64
+		{478E401C-6CDB-4670-A4B9-D98D81E50D6C}.Release|x64.Build.0 = Release|x64
+		{478E401C-6CDB-4670-A4B9-D98D81E50D6C}.Release|x86.ActiveCfg = Release|Win32
+		{478E401C-6CDB-4670-A4B9-D98D81E50D6C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

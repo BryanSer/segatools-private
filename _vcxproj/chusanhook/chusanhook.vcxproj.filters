@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="chusanhook">
+      <UniqueIdentifier>{5a0663a4-77f1-43cc-9122-5fe75b7b8b02}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\assert.h" />
+    <ClInclude Include="..\..\precompiled.h" />
+    <ClInclude Include="..\..\chusanhook\chuni-dll.h">
+      <Filter>chusanhook</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\chusanhook\config.h">
+      <Filter>chusanhook</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\chusanhook\io4.h">
+      <Filter>chusanhook</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\chusanhook\slider.h">
+      <Filter>chusanhook</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\chusanhook\chuni-dll.c">
+      <Filter>chusanhook</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\chusanhook\config.c">
+      <Filter>chusanhook</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\chusanhook\dllmain.c">
+      <Filter>chusanhook</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\chusanhook\io4.c">
+      <Filter>chusanhook</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\chusanhook\slider.c">
+      <Filter>chusanhook</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
